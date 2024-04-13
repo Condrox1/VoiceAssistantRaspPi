@@ -17,22 +17,20 @@ r = sr.Recognizer()
 engine = pyttsx3.init()
 voice = engine.getProperty('voices')[1]
 engine.setProperty('voice', voice.id)
-name = "YOUR NAME HERE"
-greetings = [f"whats up master {name}", 
-             "yeah?", 
-             "Well, hello there, Master of Puns and Jokes - how's it going today?",
-             f"Ahoy there, Captain {name}! How's the ship sailing?",
-             f"Bonjour, Monsieur {name}! Comment ça va? Wait, why the hell am I speaking French?" ]
+name = "Razvan"
+greetings = [f"Hey {name}", 
+             "Hello there", 
+             "Yes?"]
 
-# Listen for the wake word "hey pos"
+# Listen for the wake word "hey assistant"
 def listen_for_wake_word(source):
-    print("Listening for 'Hey POS'...")
+    print("Listening for 'Hey Assistant'...")
 
     while True:
         audio = r.listen(source)
         try:
             text = r.recognize_google(audio)
-            if "hey pos" in text.lower():
+            if "hey assistant" in text.lower():
                 print("Wake word detected.")
                 engine.say(np.random.choice(greetings))
                 engine.runAndWait()
