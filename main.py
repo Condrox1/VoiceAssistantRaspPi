@@ -18,7 +18,7 @@ engine = pyttsx3.init()
 voice = engine.getProperty('voices')[1]
 engine.setProperty('voice', voice.id)
 name = "Razvan"
-greetings = [f"Hey {name}", 
+wake_word_responses = [f"Hey {name}", 
              "Hello there", 
              "Yes?"]
 
@@ -32,7 +32,7 @@ def listen_for_wake_word(source):
             text = r.recognize_google(audio)
             if "hey assistant" in text.lower():
                 print("Wake word detected.")
-                engine.say(np.random.choice(greetings))
+                engine.say(np.random.choice(wake_word_responses))
                 engine.runAndWait()
                 listen_and_respond(source)
                 break
