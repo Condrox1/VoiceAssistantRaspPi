@@ -44,7 +44,7 @@ pip install openai speechrecognition pyttsx3 numpy python-dotenv pyaudio
 3. **Run the Assistant**:
    Run the Python script:
    ```bash
-   python assistant.py
+   python main.py
    ```
 
 ## How It Works
